@@ -33,3 +33,16 @@ int cows_counter(int *array_c, int *player_n)
     return c;
 }
 
+int is_digit_check(const char *str)
+{
+    int i = 0;
+    for(i = 0; i < strlen(str); i++) {
+        if ((str[i] >='0') && (str[i] <= '9') && (atoi(str) > 1000) &&
+            (str[4] == 10)) {
+            return 1;
+        }
+    }
+    printf("Неверный ввод,попробуйте ещё раз.\n");
+    return 0;
+}
+
