@@ -18,3 +18,18 @@ int bulls_counter(int *array_b, int *player_num)
     return b;
 }
 
+int cows_counter(int *array_c, int *player_n)
+{
+
+    int c = 0, j = 0, i = 0;
+    
+    for(i = 3; i >= 0; i--) {
+        for(j = 3; j >= 0; j--) {
+            if((array_c[j]) == (player_n[i])) {
+                c++;
+            }
+        }
+    }
+    return c;
+}
+
