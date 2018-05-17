@@ -46,3 +46,14 @@ int is_digit_check(const char *str)
     return 0;
 }
 
+int startup_options_check(int argc, const int arg_v)
+{
+    int n = 0;
+    if (argc == 1) {
+        n = 10;
+    } else {
+        n = arg_v;
+    }
+    return n;
+}
+
