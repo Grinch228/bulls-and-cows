@@ -57,3 +57,16 @@ int startup_options_check(int argc, const int arg_v)
     return n;
 }
 
+int has_repeating_digits(const char *num) {
+    int i, j;
+    for (i=0; i<strlen(num)-1; i++) {
+        for (j=i+1; j<strlen(num); j++) {
+            if (num[j]==num[i]) {
+                printf("Неверный ввод, попробуйте ещё раз.\n");
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+
