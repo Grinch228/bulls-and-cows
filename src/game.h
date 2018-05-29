@@ -7,7 +7,7 @@ int cows_counter(int *array_c, int *player_n);
 
 int is_digit_check(const char *str);
 
-int startup_options_check(int argc, const int arg_v);
+int startup_options_check(int argc, char **argv);
 
 int has_repeating_digits(const char *num);
 

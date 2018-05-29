@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "bulls_and_cows_game.h"
+#include "game.h"
 #define SIZE 4
 
 int main(int argc, char **argv)
 {
 
-    int attempts = 0, cows = 0, bulls = 0, player_digit[4], arr[SIZE];
-    const int argum = atoi(argv[2]),
-    attem_count = startup_options_check(argc, argum);
+    int attempts = 0, cows = 0, bulls = 0, player_digit[4], arr[SIZE],
+    attem_count = startup_options_check(argc, argv);
     
     randomizer(arr);
     

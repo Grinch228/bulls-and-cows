@@ -46,13 +46,13 @@ int is_digit_check(const char *str)
     return 0;
 }
 
-int startup_options_check(int argc, const int arg_v)
+int startup_options_check(int argc, char **argv)
 {
     int n = 0;
-    if (argc == 1) {
+    if (argc == 1 || atoi(argv[2]) == 0) {
         n = 10;
     } else {
-        n = arg_v;
+        n = atoi(argv[2]);
     }
     return n;
 }
