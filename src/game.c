@@ -5,6 +5,12 @@
 #include <time.h>
 #define SIZE 4
 
+void print_bullscows(int bulls, int cows) 
+{
+    printf("Кол-во 'Быков' = %d\n", bulls);
+    printf("Кол-во 'Коров' = %d\n", cows);
+}
+
 void string_to_int(int *digitmas)
 {
     int i = 0;
