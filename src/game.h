@@ -1,6 +1,8 @@
 #ifndef GameFunctions
 #define GameFunctions
 
+void string_to_int(int *digitmas);
+
 void print_result(int bulls, int *arr, int attempts);
 
 void randomizer(int *mas);

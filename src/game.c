@@ -5,6 +5,21 @@
 #include <time.h>
 #define SIZE 4
 
+void string_to_int(int *digitmas)
+{
+    int i = 0;
+    char *str = malloc(sizeof(char));
+    printf("Введите четырёхзначное число:");
+    fgets(str, 15, stdin);
+
+    if ((digit_check(str)) && (has_repeating_digits(str))) {
+        for (i = 0; i < SIZE; i++)
+            digitmas[i] = str[i] - 48;
+    } else {
+        string_to_int(digitmas);
+    }
+}
+
 void print_result(int bulls, int *arr, int attempts)
 {
     int i = 0;
