@@ -1,6 +1,8 @@
 #ifndef GameFunctions
 #define GameFunctions
 
+void print_result(int bulls, int *arr, int attempts);
+
 void randomizer(int *mas);
 
 int bulls_counter(int *array_b, int *player_num);

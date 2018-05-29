@@ -5,6 +5,20 @@
 #include <time.h>
 #define SIZE 4
 
+void print_result(int bulls, int *arr, int attempts)
+{
+    int i = 0;
+    if(bulls!=4){
+        printf("Вы проиграли!Загаднное число: ");
+        for(i = 0; i < 4; i++) {
+            printf("%d", arr[i]);
+        }
+        printf("\n");
+    } else { 
+        printf("Поздравляю, вы угадали число с %d попытки!\n", attempts);
+    }
+}
+
 void randomizer(int *mas)
 {
     int range[10];
