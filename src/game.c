@@ -5,6 +5,26 @@
 #include <time.h>
 #define SIZE 4
 
+void randomizer(int *mas)
+{
+    int range[10];
+    int size = 10;
+    int n;
+    
+    for (int i = 0; i < 10; i++) {
+        range[i] = i;
+    }
+    
+    srand(time(NULL));
+    
+    for (int i = 0; i < SIZE; i++) {
+        n = getrand(0, size - 1);
+        mas[i] = range[n];
+        range[n] = range[size - 1];
+        size--;
+    }
+}
+
 int bulls_counter(int *array_b, int *player_num)
 {
 
