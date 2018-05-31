@@ -27,6 +27,56 @@ CTEST(checkers, repeat_digit_correct_input) {
     ASSERT_EQUAL(expect,result);
 }
 
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check("567r");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
 
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check("r567");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
 
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check("5678r");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
 
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check("r5678");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
+
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check("r 5678");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
+
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check("5678 r");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
+
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check("5678 ");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
+
+CTEST(checkers, digit_check_incorrect_input) {
+    int result = digit_check(" 5678");
+    int expect = 0;
+    ASSERT_EQUAL(expect,result);
+}
+
+CTEST(checkers, digit_check_correct_input) {
+    int result = digit_check("5678");
+    int expect = 1;
+    ASSERT_EQUAL(expect,result);
+}
