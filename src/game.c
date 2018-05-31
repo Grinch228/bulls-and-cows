@@ -18,7 +18,7 @@ void string_to_int(int *digitmas)
     printf("Введите четырёхзначное число:");
     fgets(str, 15, stdin);
 
-    if ((digit_check(str)) && (has_repeating_digits(str))) {
+    if ((digit_check(str)) && (repeat_digits(str))) {
         for (i = 0; i < SIZE; i++)
             digitmas[i] = str[i] - 48;
     } else {
@@ -118,11 +118,11 @@ int startup_options_check(int argc, char **argv)
     return n;
 }
 
-int has_repeating_digits(const char *num) {
+int repeat_digits(const char *num) {
     int i, j;
     for (i=0; i<strlen(num)-1; i++) {
         for (j=i+1; j<strlen(num); j++) {
-            if (num[j]==num[i]) {
+            if (num[j] == num[i]) {
                 printf("Неверный ввод, попробуйте ещё раз.\n");
                 return 0;
             }
