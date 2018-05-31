@@ -19,6 +19,6 @@ int digit_check(const char *str);
 
 int startup_options_check(int argc, char **argv);
 
-int has_repeating_digits(const char *num);
+int repeat_digits(const char *num);
 
 #endif
