@@ -112,62 +112,7 @@ CTEST(checkers, digit_check_correct_input) {
     ASSERT_EQUAL(expect,result);
 }
 
-CTEST(game, bulls_counter_guess_0) {
-    int result = bulls_counter(1234, 4312);
-    int expect = 0;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, bulls_counter_guess_1) {
-    int result = bulls_counter(1234, 3124);
-    int expect = 1;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, bulls_counter_guess_2) {
-    int result = bulls_counter(1234, 2134);
-    int expect = 2;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, bulls_counter_guess_3) {
-    int result = bulls_counter(1234, 5234);
-    int expect = 3;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, bulls_counter_guess_4) {
-    int result = bulls_counter(1234, 1234);
-    int expect = 4;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, cows_counter_guess_0) {
-    int result = cows_counter(1234, 5678);
-    int expect = 0;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, cows_counter_guess_1) {
-    int result = cows_counter(1234, 4567);
-    int expect = 1;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, cows_counter_guess_2) {
-    int result = cows_counter(1234, 3456);
-    int expect = 2;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, cows_counter_guess_3) {
-    int result = cows_counter(1234, 3425);
-    int expect = 3;
-    ASSERT_EQUAL(expect, result);
-}
-
-CTEST(game, cows_counter_guess_4) {
-    int result = cows_counter(1234, 4312);
-    int expect = 4;
-    ASSERT_EQUAL(expect, result);
+int main(int argc, const char** argv) {
+    int test_res = ctest_main(argc, argv);
+    return test_res;
 }
