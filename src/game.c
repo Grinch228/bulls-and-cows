@@ -40,6 +40,12 @@ void print_result(int bulls, int *arr, int attempts)
     }
 }
 
+int getrand(int min, int max)
+{
+    return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
+}
+
+
 void randomizer(int *mas)
 {
     int range[10];
@@ -88,7 +94,7 @@ int cows_counter(int *array_c, int *player_n)
     return c;
 }
 
-int is_digit_check(const char *str)
+int digit_check(const char *str)
 {
     int i = 0;
     for(i = 0; i < strlen(str); i++) {
