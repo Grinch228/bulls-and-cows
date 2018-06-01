@@ -1,27 +1,28 @@
-CC=gcc
-CFLAGS=-Wall -Werror
-GTKFLAGS=`pkg-config --cflags gtk+-3.0`
-LIBS=`pkg-config --libs gtk+-3.0` -lm
+flags  = -Wall -Werror -std=c99
 
-.PHONY: default clean
+.PHONY: clean open
 
 default: bin/game
 
-bin/game: bin build/main.o build/game.o
-	$(CC) $(CFLAGS) build/game.o build/main.o -o bin/game
+test: ./bin/game-test
+	./bin/game-test
 
-build/main.o: build src/main.c
-	$(CC) $(CFLAGS) -c src/main.c -o build/main.o
+./bin/game: ./build/main.o ./build/game.o bin test
+	gcc  $(flags) -o ./bin/game ./build/main.o ./build/game.o -lm
 
-build/game.o: build src/game.c
-	$(CC) $(CFLAGS) -c src/game.c -o build/game.o
+./build/main.o: ./src/main.c ./src/game.h build
+	gcc  $(flags) -o build/main.o -c src/main.c -lm
 
-test: bin build/main-test.o build/gui.o build/game.o build/utils.o
-	$(CC) $(CFLAGS) build/main-test.o build/game.o -o bin/test
-	bin/test
+./build/game.o: ./src/game.c ./src/game.h build
+	gcc $(flags) -o ./build/game.o -c ./src/game.c -lm
 
-build/main-test.o: build test/main.c
-	$(CC) $(CFLAGS) -I thirdparty -I src -c test/main.c -o build/main-test.o
+bin/game-test: ./build/main_test.o ./build/game.o bin
+	gcc  $(flags) ./build/main_test.o ./build/game.o -o bin/game-test -lm
+
+./build/main_test.o: ./test/tests.c ./thirdparty/ctest.h ./src/game.h build
+	gcc $(flags) -I thirdparty -I src -c ./test/tests.c -o ./build/main_test.o -lm
+
+
 
 build:
 	mkdir build
@@ -30,4 +31,7 @@ bin:
 	mkdir bin
 
 clean:
-	rm -rf bin build
+	rm -rf build bin
+
+open:
+	./bin/board
