@@ -11,25 +11,26 @@ void print_bullscows(int bulls, int cows)
     printf("Кол-во 'Коров' = %d\n", cows);
 }
 
-void string_to_int(int* digitmas)
+void string_to_int(int *digitmas)
 {
     int i = 0;
     char *str = (char*)malloc(sizeof(char));
     printf("Введите четырёхзначное число, или 'q' для выхода:");
     fgets(str, 15, stdin);
-    if (str[0] == 'q' && strlen(str) ==  2) {
+    if (str[0] == 'q' && strlen(str) == 2) {
         exit(0);
     } else {
         if ((digit_check(str)) && (repeat_digits(str))) {
-            for (i = 0; i < SIZE; i++)
+            for (i = 0; i < SIZE; i++) {
                 digitmas[i] = str[i] - 48;
+            }
         } else {
-            string_to_int(digitmas);
+                string_to_int(digitmas);
         }
     }
 }
 
-void print_result(int bulls, int* arr, int attempts)
+void print_result(int bulls, int *arr, int attempts)
 {
     int i = 0;
     if (bulls != 4) {
@@ -43,13 +44,12 @@ void print_result(int bulls, int* arr, int attempts)
     }
 }
 
-int getrand(int min, int max)
-{
-    return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
+int getrand(int range_min, int range_max) {
+
+    return range_min + rand() % (range_max - range_min + 1);
 }
 
-
-void randomizer(int* mas)
+void randomizer(int *mas)
 {
     int range[10];
     int size = 10;
@@ -64,12 +64,15 @@ void randomizer(int* mas)
     for (int i = 0; i < SIZE; i++) {
         n = getrand(0, size - 1);
         mas[i] = range[n];
+        if (mas[0] == 0) {
+            randomizer(mas);
+        }
         range[n] = range[size - 1];
         size--;
     }
 }
 
-int bulls_counter(int* array_b, int* player_num)
+int bulls_counter(int *array_b, int *player_num)
 {
 
     int b = 0, i = 0;
@@ -82,8 +85,9 @@ int bulls_counter(int* array_b, int* player_num)
     return b;
 }
 
-int cows_counter(int* array_c, int* player_n)
+int cows_counter(int *array_c, int *player_n)
 {
+
     int c = 0, j = 0, i = 0;
 
     for (i = 3; i >= 0; i--) {
@@ -96,7 +100,7 @@ int cows_counter(int* array_c, int* player_n)
     return c;
 }
 
-int digit_check(const char* str)
+int digit_check(const char *str)
 {
     int i = 0;
     for (i = 0; i < strlen(str); i++) {
@@ -109,10 +113,10 @@ int digit_check(const char* str)
     return 0;
 }
 
-int startup_options_check(int argc, char** argv)
+int startup_options_check(int argc, char **argv)
 {
     int n = 0;
-    if ((argc == 1 || atoi(argv[2]) == 0) && (*argv[2] != '0')) {
+    if (argc == 1 || atoi(argv[2]) == 0) {
         n = 10;
     } else {
         n = atoi(argv[2]);
@@ -120,7 +124,7 @@ int startup_options_check(int argc, char** argv)
     return n;
 }
 
-int repeat_digits(const char* num) {
+int repeat_digits(const char *num) {
     int i, j;
     for (i = 0; i < strlen(num) - 1; i++) {
         for (j = i + 1; j < strlen(num); j++) {
@@ -132,4 +136,3 @@ int repeat_digits(const char* num) {
     }
     return 1;
 }
-
