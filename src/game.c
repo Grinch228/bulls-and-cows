@@ -120,8 +120,8 @@ int startup_options_check(int argc, char **argv)
 
 int repeat_digits(const char *num) {
     int i, j;
-    for (i=0; i<strlen(num)-1; i++) {
-        for (j=i+1; j<strlen(num); j++) {
+    for (i=0; i < strlen(num)-1; i++) {
+        for (j = i + 1; j < strlen(num); j++) {
             if (num[j] == num[i]) {
                 printf("Неверный ввод, попробуйте ещё раз.\n");
                 return 0;
