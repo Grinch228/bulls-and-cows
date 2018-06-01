@@ -110,7 +110,7 @@ int digit_check(const char *str)
 int startup_options_check(int argc, char **argv)
 {
     int n = 0;
-    if (argc == 1 || atoi(argv[2]) == 0) {
+    if ((argc == 1 || atoi(argv[2]) == 0) && (*argv[2] != '0')) {
         n = 10;
     } else {
         n = atoi(argv[2]);
