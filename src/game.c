@@ -11,7 +11,7 @@ void print_bullscows(int bulls, int cows)
     printf("Кол-во 'Коров' = %d\n", cows);
 }
 
-void string_to_int(int *digitmas)
+void string_to_int(int* digitmas)
 {
     int i = 0;
     char *str = (char*)malloc(sizeof(char));
@@ -22,96 +22,94 @@ void string_to_int(int *digitmas)
     } else {
         if ((digit_check(str)) && (repeat_digits(str))) {
             for (i = 0; i < SIZE; i++)
-            digitmas[i] = str[i] - 48;
+                digitmas[i] = str[i] - 48;
         } else {
-			string_to_int(digitmas);
-		}
-	}
+            string_to_int(digitmas);
+        }
+    }
 }
 
-void print_result(int bulls, int *arr, int attempts)
+void print_result(int bulls, int* arr, int attempts)
 {
     int i = 0;
-	if (bulls != 4) {
-		printf("Вы проиграли!Загаднное число: ");
-		for (i = 0; i < 4; i++) {
-			printf("%d", arr[i]);
-		}
-		printf("\n");
-	}
-	else {
-		printf("Поздравляю, вы угадали число с %d попытки!\n", attempts);
-	}
+    if (bulls != 4) {
+        printf("Вы проиграли!Загаднное число: ");
+        for (i = 0; i < 4; i++) {
+            printf("%d", arr[i]);
+        }
+        printf("\n");
+    } else {
+        printf("Поздравляю, вы угадали число с %d попытки!\n", attempts);
+    }
 }
 
 int getrand(int min, int max)
 {
-	return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
+    return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
 
 
-void randomizer(int *mas)
+void randomizer(int* mas)
 {
-	int range[10];
-	int size = 10;
-	int n;
+    int range[10];
+    int size = 10;
+    int n;
 
-	for (int i = 0; i < 10; i++) {
-		range[i] = i;
-	}
+    for (int i = 0; i < 10; i++) {
+        range[i] = i;
+    }
 
-	srand(time(NULL));
+    srand(time(NULL));
 
-	for (int i = 0; i < SIZE; i++) {
-		n = getrand(0, size - 1);
-		mas[i] = range[n];
-		range[n] = range[size - 1];
-		size--;
-	}
+    for (int i = 0; i < SIZE; i++) {
+        n = getrand(0, size - 1);
+        mas[i] = range[n];
+        range[n] = range[size - 1];
+        size--;
+    }
 }
 
-int bulls_counter(int *array_b, int *player_num)
-{
-
-	int b = 0, i = 0;
-
-	for (i = 3; i >= 0; i--) {
-		if ((array_b[i]) == (player_num[i])) {
-			b++;
-		}
-	}
-	return b;
-}
-
-int cows_counter(int *array_c, int *player_n)
+int bulls_counter(int* array_b, int* player_num)
 {
 
-	int c = 0, j = 0, i = 0;
+    int b = 0, i = 0;
 
-	for (i = 3; i >= 0; i--) {
-		for (j = 3; j >= 0; j--) {
-			if ((array_c[j]) == (player_n[i])) {
-				c++;
-			}
-		}
-	}
-	return c;
+    for (i = 3; i >= 0; i--) {
+        if ((array_b[i]) == (player_num[i])) {
+            b++;
+        }
+    }
+    return b;
 }
 
-int digit_check(const char *str)
+int cows_counter(int* array_c, int* player_n)
 {
-	int i = 0;
-	for (i = 0; i < strlen(str); i++) {
-		if ((str[i] >= '0') && (str[i] <= '9') && (atoi(str) > 1000) &&
-			(str[4] == 10)) {
-			return 1;
-		}
-	}
-	printf("Неверный ввод,попробуйте ещё раз.\n");
-	return 0;
+    int c = 0, j = 0, i = 0;
+
+    for (i = 3; i >= 0; i--) {
+        for (j = 3; j >= 0; j--) {
+            if ((array_c[j]) == (player_n[i])) {
+                c++;
+            }
+        }
+    }
+    return c;
 }
 
-int startup_options_check(int argc, char **argv)
+int digit_check(const char* str)
+{
+    int i = 0;
+    for (i = 0; i < strlen(str); i++) {
+        if ((str[i] >= '0') && (str[i] <= '9') && (atoi(str) > 1000) &&
+            (str[4] == 10)) {
+            return 1;
+        }
+    }
+    printf("Неверный ввод,попробуйте ещё раз.\n");
+    return 0;
+}
+
+int startup_options_check(int argc, char** argv)
 {
     int n = 0;
     if ((argc == 1 || atoi(argv[2]) == 0) && (*argv[2] != '0')) {
@@ -122,16 +120,16 @@ int startup_options_check(int argc, char **argv)
     return n;
 }
 
-int repeat_digits(const char *num) {
-	int i, j;
-	for (i = 0; i < strlen(num) - 1; i++) {
-		for (j = i + 1; j < strlen(num); j++) {
-			if (num[j] == num[i]) {
-				printf("Неверный ввод, попробуйте ещё раз.\n");
-				return 0;
-			}
-		}
-	}
-	return 1;
+int repeat_digits(const char* num) {
+    int i, j;
+    for (i = 0; i < strlen(num) - 1; i++) {
+        for (j = i + 1; j < strlen(num); j++) {
+            if (num[j] == num[i]) {
+                printf("Неверный ввод, попробуйте ещё раз.\n");
+                return 0;
+            }
+        }
+    }
+    return 1;
 }
 

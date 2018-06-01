@@ -3,7 +3,7 @@
 #include "game.h"
 #define SIZE 4
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
 
     int attempts = 0, cows = 0, bulls = 0, player_digit[4], arr[SIZE],
@@ -15,18 +15,24 @@ int main(int argc, char **argv)
         printf("У вас бесконечное количество попыток!\n");
         while (bulls != 4) {
             string_to_int(player_digit);
-            attempts++;
+            
+            attempts ++;
+            
             cows = cows_counter(arr, player_digit);
             bulls = bulls_counter(arr, player_digit);
+            
             print_bullscows(bulls, cows-bulls);
         }
     } else {
         while ((bulls != 4) && (attempts < attem_count)) {
             printf("У вас осталось %d попыток.\n", attem_count - attempts);
             string_to_int(player_digit);
-            attempts++;
+            
+            attempts ++;
+            
             cows = cows_counter(arr, player_digit);
             bulls = bulls_counter(arr, player_digit);
+            
             print_bullscows(bulls, cows-bulls);
         }
     }
