@@ -34,4 +34,4 @@ clean:
 	rm -rf build bin
 
 open:
-	./bin/board
+	./bin/game
