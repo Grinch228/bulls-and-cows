@@ -112,6 +112,76 @@ CTEST(checkers, digit_check_correct_input12) {
     ASSERT_EQUAL(expect,result);
 }
 
+CTEST(game_func, cows_counter_guess_0) {
+    int arr2[4] = {5,6,7,8}, arr1[4] = {1,2,3,4};
+    int result = cows_counter(arr1, arr2);
+    int expect = 0;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, cows_counter_guess_1) {
+    int arr2[4] = {4,6,7,8}, arr1[4] = {1,2,3,4};
+    int result = cows_counter(arr1, arr2);
+    int expect = 1;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, cows_counter_guess_2) {
+    int arr2[4] = {4,3,7,8}, arr1[4] = {1,2,3,4};
+    int result = cows_counter(arr1, arr2);
+    int expect = 2;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, cows_counter_guess_3) {
+    int arr2[4] = {4,3,2,8}, arr1[4] = {1,2,3,4};
+    int result = cows_counter(arr1, arr2);
+    int expect = 3;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, cows_counter_guess_4) {
+    int arr2[4] = {4,3,2,1}, arr1[4] = {1,2,3,4};
+    int result = cows_counter(arr1, arr2);
+    int expect = 4;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, bulls_counter_guess_0) {
+    int arr2[4] = {5,6,7,8}, arr1[4] = {1,2,3,4};
+    int result = bulls_counter(arr1, arr2);
+    int expect = 0;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, bulls_counter_guess_1) {
+    int arr2[4] = {1,6,7,8}, arr1[4] = {1,2,3,4};
+    int result = bulls_counter(arr1, arr2);
+    int expect = 1;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, bulls_counter_guess_2) {
+    int arr2[4] = {1,2,7,8}, arr1[4] = {1,2,3,4};
+    int result = bulls_counter(arr1, arr2);
+    int expect = 2;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, bulls_counter_guess_3) {
+    int arr2[4] = {1,2,3,8}, arr1[4] = {1,2,3,4};
+    int result = bulls_counter(arr1, arr2);
+    int expect = 3;
+    ASSERT_EQUAL(expect, result);
+}
+
+CTEST(game_func, bulls_counter_guess_4) {
+    int arr2[4] = {1,2,3,4}, arr1[4] = {1,2,3,4};
+    int result = bulls_counter(arr1, arr2);
+    int expect = 4;
+    ASSERT_EQUAL(expect, result);
+}
+
 int main(int argc, const char* argv[]) {
     int result = ctest_main(argc, argv);
     printf("All tests are done!\n");
